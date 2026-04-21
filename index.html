@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>UniEvents 🎓 - Gestion Événements Universitaires</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER - Navigation -->
+    <header>
+        <nav>
+            <div class="logo">UniEvents 🎓</div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#evenements">Événements</a></li>
+                <li><a href="#creer">Créer</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-burger">☰</div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="accueil">
+        <div class="container">
+            <h1>Événements Universitaires</h1>
+            <p class="hero-subtitle">Découvrez, organisez et participez aux meilleurs événements sur votre campus</p>
+            <div class="hero-buttons">
+                <a href="#evenements" class="btn btn-primary">🎯 Voir les événements</a>
+                <a href="#creer" class="btn btn-secondary">✨ Organiser un événement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIQUES -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3 id="stat-events">15+</h3>
+                    <p>Événements</p>
+                </div>
+                <div class="stat">
+                    <h3 id="stat-participants">200+</h3>
+                    <p>Participants</p>
+                </div>
+                <div class="stat">
+                    <h3 id="stat-organizers">10+</h3>
+                    <p>Organisateurs</p>
+                </div>
+                <div class="stat">
+                    <h3 id="stat-clubs">5</h3>
+                    <p>Clubs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION À PROPOS -->
+    <section id="apropos">
+        <div class="container">
+            <h2>À PROPOS DE LA PLATEFORME</h2>
+            <div class="apropos-content">
+                <div class="apropos-text">
+                    <h3>UniEvents</h3>
+                    <p class="lead">La première plateforme de gestion d'événements 100% dédiée à la communauté universitaire.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">📢</span>
+                            <h4>Diffusion facile</h4>
+                            <p>Publiez vos événements en 2 minutes et touchez tous les étudiants</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">📝</span>
+                            <h4>Gestion simplifiée</h4>
+                            <p>Suivez les inscriptions en temps réel et gérez les places disponibles</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🎯</span>
+                            <h4>Découverte</h4>
+                            <p>Trouvez les événements qui correspondent à vos centres d'intérêt</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="apropos-stats">
+                    <div class="stat-card">
+                        <h4>🎓 Pour les étudiants</h4>
+                        <ul>
+                            <li>✅ Accès à tous les événements</li>
+                            <li>✅ Inscription en 1 clic</li>
+                            <li>✅ Notifications personnalisées</li>
+                            <li>✅ Calendrier intégré</li>
+                            <li>✅ Certificats de participation</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h4>📋 Pour les organisateurs</h4>
+                        <ul>
+                            <li>✅ Création instantanée</li>
+                            <li>✅ Gestion des participants</li>
+                            <li>✅ Statistiques avancées</li>
+                            <li>✅ Communication directe</li>
+                            <li>✅ Export des données</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ÉVÉNEMENTS -->
+    <section id="evenements">
+        <div class="container">
+            <h2>ÉVÉNEMENTS À VENIR</h2>
+            
+            <div class="filtres">
+                <button class="filtre-btn active" onclick="filterEvents('all')">Tous</button>
+                <button class="filtre-btn" onclick="filterEvents('Conférence')">Conférences</button>
+                <button class="filtre-btn" onclick="filterEvents('Workshop')">Workshops</button>
+                <button class="filtre-btn" onclick="filterEvents('Hackathon')">Hackathons</button>
+                <button class="filtre-btn" onclick="filterEvents('Club')">Clubs</button>
+            </div>
+
+            <div class="evenements-grid" id="events-grid">
+                <!-- Les événements seront chargés dynamiquement ici -->
+                <div class="loading-events">Chargement des événements...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CRÉER ÉVÉNEMENT -->
+    <section id="creer">
+        <div class="container">
+            <h2>ORGANISER UN ÉVÉNEMENT</h2>
+            <div class="creer-wrapper">
+                <div class="creer-info">
+                    <h3>Vous êtes organisateur ?</h3>
+                    <p>Créez votre événement en quelques minutes et touchez des centaines d'étudiants. C'est gratuit et sans engagement !</p>
+                    <ul>
+                        <li>✓ Publication instantanée</li>
+                        <li>✓ Gestion des inscriptions</li>
+                        <li>✓ Outils de communication</li>
+                        <li>✓ Statistiques détaillées</li>
+                        <li>✓ Export des participants</li>
+                        <li>✓ Support prioritaire</li>
+                    </ul>
+                    <button onclick="showOrganizerInfo()" class="btn btn-primary" style="margin-top: 30px;">📞 Devenir organisateur</button>
+                </div>
+                <div class="creer-form">
+                    <h3 style="margin-bottom: 30px; color: #0a192f;">Nouvel événement</h3>
+                    <form id="event-form" onsubmit="createEvent(event)">
+                        <div class="form-group">
+                            <label>Titre de l'événement *</label>
+                            <input type="text" id="event-title" placeholder="Ex: Conférence sur l'IA" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Catégorie *</label>
+                                <select id="event-category" required>
+                                    <option value="">Choisir...</option>
+                                    <option value="Conférence">Conférence</option>
+                                    <option value="Workshop">Workshop</option>
+                                    <option value="Hackathon">Hackathon</option>
+                                    <option value="Club">Club</option>
+                                    <option value="Séminaire">Séminaire</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Capacité max *</label>
+                                <input type="number" id="event-capacity" placeholder="50" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date *</label>
+                                <input type="date" id="event-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Heure *</label>
+                                <input type="time" id="event-time" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Lieu *</label>
+                            <input type="text" id="event-location" placeholder="Amphi, salle, labo..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description détaillée *</label>
+                            <textarea id="event-description" rows="4" placeholder="Décrivez votre événement, le programme, les prérequis..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Intervenant / Organisateur</label>
+                            <input type="text" id="event-speaker" placeholder="Nom du club, association ou intervenant">
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">✅ Créer l'événement</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2>CONTACTEZ-NOUS</h2>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <h3>Envoyer un message</h3>
+                    <form id="contact-form" onsubmit="sendMessage(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nom complet *</label>
+                                <input type="text" id="contact-name" placeholder="Votre nom et prénom" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" id="contact-email" placeholder="votre@universite.tn" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Sujet *</label>
+                            <select id="contact-subject" required>
+                                <option value="">Choisir un sujet</option>
+                                <option value="Question">Question sur un événement</option>
+                                <option value="Proposer">Proposer un événement</option>
+                                <option value="Technique">Problème technique</option>
+                                <option value="Partenariat">Partenariat</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea id="contact-message" rows="5" placeholder="Votre message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">📨 Envoyer le message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h4>📍 Adresse</h4>
+                        <p>📌 Université Virtuelle<br>
+                        Campus Universitaire<br>
+                        Tunis, Tunisie 1002</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📧 Email</h4>
+                        <p>✉️ contact@unievents.tn<br>
+                        📨 support@unievents.tn</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📞 Téléphone</h4>
+                        <p>📱 +216 71 123 456<br>
+                        ☎️ +216 70 789 012</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>⏰ Horaires</h4>
+                        <p>🕐 Lun - Ven: 8h30 - 17h00<br>
+                        🌙 Sam - Dim: Fermé</p>
+                    </div>
+                    <div class="social-links">
+                        <h4>Suivez-nous</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">📘</a>
+                            <a href="#" class="social-icon">📱</a>
+                            <a href="#" class="social-icon">🐦</a>
+                            <a href="#" class="social-icon">💼</a>
+                            <a href="#" class="social-icon">📹</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UniEvents 🎓</h4>
+                    <p>La plateforme de gestion d'événements pour toute la communauté universitaire. Connecter, partager, innover.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">🏠 Accueil</a></li>
+                        <li><a href="#apropos">📋 À propos</a></li>
+                        <li><a href="#evenements">🎯 Événements</a></li>
+                        <li><a href="#creer">✨ Créer</a></li>
+                        <li><a href="#contact">📞 Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">📄 Mentions légales</a></li>
+                        <li><a href="#">🔒 Politique de confidentialité</a></li>
+                        <li><a href="#">📑 CGU</a></li>
+                        <li><a href="#">🍪 Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UniEvents - Tous droits réservés. Réalisé avec ❤️ pour la communauté universitaire.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL INSCRIPTION -->
+    <div id="inscription" class="modal-overlay">
+        <div class="modal">
+            <h3>📝 Inscription à l'événement</h3>
+            <p id="event-name-display" class="event-name"></p>
+            
+            <form id="inscription-form" onsubmit="submitRegistration(event)">
+                <div class="form-group">
+                    <label>Nom complet *</label>
+                    <input type="text" id="nom" placeholder="Votre nom et prénom" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email universitaire *</label>
+                    <input type="email" id="email" placeholder="prenom.nom@universite.tn" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" id="tel" placeholder="+216 XX XXX XXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Niveau</label>
+                        <select id="niveau">
+                            <option>Licence 1</option>
+                            <option>Licence 2</option>
+                            <option>Licence 3</option>
+                            <option>Master 1</option>
+                            <option>Master 2</option>
+                            <option>Doctorat</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Spécialité</label>
+                    <input type="text" id="specialite" placeholder="Informatique, Physique, Médecine...">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" style="flex: 1;">✅ Confirmer l'inscription</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal()" style="flex: 1;">❌ Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIRMATION -->
+    <div id="confirmation" class="modal-overlay">
+        <div class="modal" style="text-align: center;">
+            <div class="success-icon">✓</div>
+            <h3>Inscription confirmée !</h3>
+            <p>Un email de confirmation a été envoyé à <br><span id="user-email" class="highlight"></span></p>
+            <p class="small">📧 Vérifiez votre boîte de réception</p>
+            <button onclick="closeConfirmation()" class="btn-primary" style="margin-top: 20px;">OK</button>
+        </div>
+    </div>
+
+    <!-- MODAL LISTE D'ATTENTE -->
+    <div id="waitlist" class="modal-overlay">
+        <div class="modal" style="text-align: center;">
+            <div class="warning-icon">⏳</div>
+            <h3>Complet !</h3>
+            <p>L'événement <span id="full-event-name" class="highlight"></span> n'a plus de places disponibles.</p>
+            <p>Voulez-vous rejoindre la liste d'attente ?</p>
+            <div class="form-actions" style="justify-content: center;">
+                <button onclick="joinWaitlist()" class="btn-primary">✅ Oui, m'inscrire</button>
+                <button onclick="closeWaitlist()" class="btn-secondary">❌ Fermer</button>
+            </div>
+            <p class="small">📨 Vous serez notifié par email si une place se libère.</p>
+        </div>
+    </div>
+
+    <!-- MODAL ORGANISATEUR -->
+    <div id="organizer-modal" class="modal-overlay">
+        <div class="modal">
+            <h3>📋 Devenir organisateur</h3>
+            <p style="margin-bottom: 20px;">Pour créer des événements sur UniEvents, remplissez ce formulaire de demande.</p>
+            
+            <form id="organizer-form" onsubmit="submitOrganizer(event)">
+                <div class="form-group">
+                    <label>Nom complet *</label>
+                    <input type="text" id="org-name" placeholder="Votre nom" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email universitaire *</label>
+                    <input type="email" id="org-email" placeholder="prenom.nom@universite.tn" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Club / Association *</label>
+                    <input type="text" id="org-club" placeholder="Nom du club ou association" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Rôle</label>
+                    <input type="text" id="org-role" placeholder="Président, Responsable Événementiel...">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" style="flex: 1;">✅ Envoyer la demande</button>
+                    <button type="button" class="btn-secondary" onclick="closeOrganizerModal()" style="flex: 1;">❌ Fermer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST MESSAGE -->
+    <div id="toast" class="toast-message" style="display: none;"></div>
+
+    <!-- JavaScript principal (API + Dynamique) -->
+    <script src="assets/js/main.js">
+            // Test direct de l'API
+    fetch('http://localhost/unievents/api/get_events.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log('API Response:', data);
+            if (data.success) {
+                alert('✅ API fonctionne! ' + data.data.length + ' événements trouvés');
+            } else {
+                alert('❌ API error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            alert('❌ Impossible de contacter l\'API');
+        });
+    </script>
+</body>
+</html>
